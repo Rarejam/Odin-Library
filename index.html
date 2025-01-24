@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="object constructors.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="head">My Library</h1>
+    <!-- <div class="library-head"> -->
+    <div class="library"></div>
+
+    <!-- </div> -->
+    <button id="book-btn">New Book</button>
+    <dialog id="dialog">
+      <form action="#" method="dialog">
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" required />
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required />
+        <label for="number-pages">Number of pages:</label>
+        <input type="number" name="pages" id="number-pages" required />
+        <div class="checkbox"><label for="read">read:</label><input type="checkbox" name="read" id="read" /></div>
+        <div class="submit">
+          <button id="submit" type="submit">Submit</button>
+          <button id="close">close</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

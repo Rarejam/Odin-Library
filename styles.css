@@ -1,0 +1,82 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  width: 40vw;
+  justify-content: center;
+  gap: 10px;
+}
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+#submit {
+  width: 30%;
+}
+#close {
+  width: 30%;
+}
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: purple;
+  margin-top: 0px;
+  height: 20vh;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 20px;
+  /* align-items: center; */
+  width: 30vw;
+  height: 40vh;
+  border: 0px;
+  box-shadow: 3px 3px 8px 8px grey;
+  border-radius: 2px;
+  font-size: 2em;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+.remove {
+  width: 60px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: purple;
+  color: white;
+}
+#book-btn {
+  width: 10vw;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: purple;
+  color: white;
+  margin-left: 70vh;
+}
+.library {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.read {
+  background-color: blue;
+}
