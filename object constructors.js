@@ -62,18 +62,20 @@ document.addEventListener('DOMContentLoaded', function () {
   // remove.addEventListener('click', (index) => {
   //   myLibrary.splice(index, 1);
   // });
-  function Book(title, author, pages, read) {
-    // the constructor...
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+  class Book {
+    constructor(title, author, pages, read) {
+      // the constructor...
+      this.title = title;
+      this.author = author;
+      this.pages = pages;
+      this.read = read;
+    }
   }
   Book.prototype.toggleRead = function () {
     this.read = !this.read;
   };
-  function toggleRead(index) {
-    myLibrary[index].toggleRead();
+  function changeRead(i) {
+    myLibrary[i].toggleRead();
     displayBook();
   }
 
@@ -87,11 +89,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const libEl = document.querySelector('.library');
     // libEl.innerHTML = '';
     if (title == '' || author == '' || pages == '') {
-      const error = document.createElement('div');
-      const library = document.querySelector('.library');
-      error.classList.add('card');
-      error.textContent = 'input required values';
-      library.append(error);
+      // const error = document.createElement('div');
+      // const library = document.querySelector('.library');
+      // error.classList.add('card');
+      // error.textContent = 'input required values';
+      // library.append(error);
+      alert('input respective values');
     } else {
       authorEl.append(author);
       authorEl.textContent = `Author: ${author}`;
@@ -110,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
       } else if (read == false) {
         readEl1.textContent = `not read`;
       }
-
       // readEl.addEventListener('click', () => {
       //   toggleRead(`${index}`);
       // });
@@ -119,13 +121,21 @@ document.addEventListener('DOMContentLoaded', function () {
       const remove = document.createElement('button');
       remove.textContent = 'remove';
       remove.classList.add('remove');
+      const unread = document.querySelector('#unread');
+      //   unread.style.display = 'block';
+      readEl.append(unread);
       card.append(authorEl, titleEl, pagesEl, readEl1, readEl, remove);
+
       remove.addEventListener('click', () => {
         // const itemToremove = document.querySelector('.library-head');
         // myLibrary.filter((item) => item !== library1);
-
-        const each = (card.style.display = 'none');
-        displayBook(each);
+        const content = document.createElement('div');
+        for (i = 0; i < myLibrary.length; i++) {
+          content.append(card);
+          myLibrary.push(content);
+          content.removeChild(card);
+          myLibrary.splice(i, 1);
+        }
         // each.removeChild(library);
         // console.log('upd', myLibrary);
         // addBookToLibrary();
@@ -144,4 +154,46 @@ document.addEventListener('DOMContentLoaded', function () {
       // console.log(addBookToLibrary());
     }
   }
+  // localStorage.setItem('card', 'trying to store some data here');
+  // console.log(localStorage.getItem('card'));
 });
+
+// class Person {
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.hasJob = false;
+//   }
+
+//   setFirstName(firstName) {
+//     this.firstName = firstName;
+//   }
+
+//   setLirstName(lastName) {
+//     this.lastName = lastName;
+//   }
+//   fullName() {
+//     `${this.firstName} ${this.lastName}`;
+//   }
+// }
+
+// class Worker extends Person {
+//   constructor(firstName, lastName, job) {
+//     super(firstName, lastName);
+//     this.job = job;
+//     this.hasJob = true;
+//   }
+//   setJob(job) {
+//     this.job - job;
+//   }
+//   get biography() {
+//     const bio = `${this.fullName()} is a ${this.job}`.toUpperCase;
+//     return bio;
+//   }
+//   set setFullName(name) {
+//     name = name.split(' ');
+//     this.setFirstName(name[0]);
+//     this.setLastName(name[1]);
+//   }
+// }
+// const worker1 = new Worker('Jamal', 'Agara', 'programmer');
